@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Explanation about my Outreachy project and the F# community.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FsAutoComplete : My Outreachy Project">
+<meta property="og:url" content="http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/index.html">
+<meta property="og:site_name" content="Nekomyst">
+<meta property="og:description" content="Explanation about my Outreachy project and the F# community.">
+<meta property="og:image" content="http://nekomyst.github.io/images/lsp.png">
+<meta property="article:published_time" content="2019-06-25T17:17:54.000Z">
+<meta property="article:modified_time" content="2021-07-21T10:35:32.000Z">
+<meta property="article:author" content="Nekomyst">
+<meta property="article:tag" content="Outreachy">
+<meta property="article:tag" content="Outreachy2019">
+<meta property="article:tag" content="FSAC">
+<meta property="article:tag" content="Fsharp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://nekomyst.github.io/images/lsp.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>FsAutoComplete : My Outreachy Project</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/07/06/Outreachy-Mid-point-Progress-Report/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/06/13/Everybody-struggles-It-s-okay-to-get-stuck/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&text=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&is_video=false&description=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=FsAutoComplete : My Outreachy Project&body=Check out this article: http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&name=FsAutoComplete : My Outreachy Project&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        FsAutoComplete : My Outreachy Project
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Nekomyst</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-06-25T17:17:54.000Z" itemprop="datePublished">25 Jun, 2019</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/FSAC/" rel="tag">FSAC</a>, <a class="tag-link" href="/tags/Fsharp/" rel="tag">Fsharp</a>, <a class="tag-link" href="/tags/Outreachy/" rel="tag">Outreachy</a>, <a class="tag-link" href="/tags/Outreachy2019/" rel="tag">Outreachy2019</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Hi, I’m working on <a href="https://github.com/fsharp/FsAutoComplete" target="_blank" rel="noopener">FsAutoComplete</a> (FSAC) project by <a href="https://fsharp.org/" target="_blank" rel="noopener">F# Software Foundation</a> under <a href="https://www.outreachy.org/" target="_blank" rel="noopener">Outreachy</a> and through this blog you will come to know more about FsAutoComplete (FSAC) and F# Software Foundation. </p>
+<p>F#, a functional programming language, is used in a wide range of application areas and is supported by both an active open community and industry-leading companies providing professional tools. The mission of the F# Software Foundation is to promote and advance the F# programming language, including a diverse and international community of F# programmers. </p>
+<p>FSAC is a backend service for rich editing such as autocomplete, tooltips, etc in editors. It can be hosted as command-line interface (stdio mode) or as http server (http mode), both using the same json protocol. As of now, FSAC is used by Emacs, Vim And Visual Studio Code.</p>
+<p>My work as an intern involves creating FSAC support for <a href="https://github.com/dotnet/templating" target="_blank" rel="noopener">.NET Template Engine</a> i.e. to introduce commands and functions that allows a user to query and discover templates through the editor. For eg, querying for a list of installed templates and their details, creating new project from template such as a Console Application and to discover online templates to install them.</p>
+<p>FSAC supports LSP(Language Server Protocol) as communication protocol for editors. LSP is specification of the communication between a client (editor) and a server that provides language tooling capabilities such as autocomplete, tooltips, etc. It reduces the m-times-n problem to the m-plus-n problem. </p>
+<p><img src="/images/lsp.png" alt="LSP"></p>
+<p>Due to the college curriculum I’m too used to programming at low level such as programming in C and C++. But after one month in my internship I have got a good hold at high level programming concepts such as writing functions that are reusable by multiple functions, utilising library functions to reduce the size of the code, etc. </p>
+<p>At first it will always be a bit intimidating to work on projects with large codebases but once you dive into them there is no coming back and one definitely enjoys the journey! </p>
+<p>Cheers! Happy coding! ;)</p>
+<p><em>References:</em></p>
+<ul>
+<li><a href="https://github.com/fsharp/FsAutoComplete" target="_blank" rel="noopener">https://github.com/fsharp/FsAutoComplete</a></li>
+<li><a href="https://fsharp.org/" target="_blank" rel="noopener">https://fsharp.org/</a></li>
+<li><a href="https://medium.com/lambda-factory/future-of-f-cross-platform-editor-tooling-a8cf62a50053" target="_blank" rel="noopener">https://medium.com/lambda-factory/future-of-f-cross-platform-editor-tooling-a8cf62a50053</a></li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&text=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&is_video=false&description=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=FsAutoComplete : My Outreachy Project&body=Check out this article: http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&title=FsAutoComplete : My Outreachy Project" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/&name=FsAutoComplete : My Outreachy Project&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2022 Nekomyst
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

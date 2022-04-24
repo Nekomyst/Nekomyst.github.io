@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="This blog post is the Outreachy mid-point progress report asked as Week-7 assignment.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Outreachy Mid-point Progress Report">
+<meta property="og:url" content="http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/index.html">
+<meta property="og:site_name" content="Nekomyst">
+<meta property="og:description" content="This blog post is the Outreachy mid-point progress report asked as Week-7 assignment.">
+<meta property="og:image" content="https://media.giphy.com/media/Z4yGuORUpoxyM/giphy.gif">
+<meta property="article:published_time" content="2019-07-06T13:07:39.000Z">
+<meta property="article:modified_time" content="2021-07-21T10:35:32.000Z">
+<meta property="article:author" content="Nekomyst">
+<meta property="article:tag" content="Outreachy">
+<meta property="article:tag" content="Outreachy2019">
+<meta property="article:tag" content="FSAC">
+<meta property="article:tag" content="Fsharp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://media.giphy.com/media/Z4yGuORUpoxyM/giphy.gif">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Outreachy Mid-point Progress Report</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/08/20/Outreachy-Final-Report/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/06/25/FsAutoComplete-My-Outreachy-Project/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&text=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&is_video=false&description=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Outreachy Mid-point Progress Report&body=Check out this article: http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&name=Outreachy Mid-point Progress Report&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-role-as-an-intern"><span class="toc-number">1.</span> <span class="toc-text">My role as an intern!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#First-half-of-the-internship"><span class="toc-number">2.</span> <span class="toc-text">First half of the internship</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-words"><span class="toc-number">3.</span> <span class="toc-text">Final words</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Outreachy Mid-point Progress Report
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Nekomyst</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-07-06T13:07:39.000Z" itemprop="datePublished">06 Jul, 2019</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/FSAC/" rel="tag">FSAC</a>, <a class="tag-link" href="/tags/Fsharp/" rel="tag">Fsharp</a>, <a class="tag-link" href="/tags/Outreachy/" rel="tag">Outreachy</a>, <a class="tag-link" href="/tags/Outreachy2019/" rel="tag">Outreachy2019</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>This blog is a progress report of all that I’ve accomplished in the first half of the  Outreachy internship. </p>
+<h2 id="My-role-as-an-intern"><a href="#My-role-as-an-intern" class="headerlink" title="My role as an intern!"></a>My role as an intern!</h2><p>My internship goals are to create FSAC support for .NET Template Engine i.e. to introduce commands and functions that allows a user to query and discover .NET templates through the editor. For eg, querying for a list of installed templates and their details, creating new project from template such as a Console Application and to discover online templates to install them. In other words enhancing user experience on editors by adding the backend support in FSAC for creating new .NET projects by searching .NET templates from the editor’s UI.</p>
+<img src="https://media.giphy.com/media/Z4yGuORUpoxyM/giphy.gif" width="300">
+
+<h2 id="First-half-of-the-internship"><a href="#First-half-of-the-internship" class="headerlink" title="First half of the internship"></a>First half of the internship</h2><p>The first task of my internship involved creating <code>DotnetNewList</code> command that will list all the installed dotnet new templates. This command helps the user to search for all the templates of interest for the new project files. After the search a list of templates is shown and the user can scroll through and select the required template. </p>
+<p>The next task was to display details for the selected template and for that <code>DotnetNewGetDetails</code> command was implemented. This command will show the complete details such as template’s name, its author, its short description and a list of options/parameters with description and default values. The user can then make changes to the parameters as per required. </p>
+<p>The details and parameter list will then be used by <code>DotnetNewCreateCli</code> command to create a usual dotnet command line such as <code>dotnet new console -lang F# -n myApp</code> to run in the backend and result with the creation of a project from the desired template.</p>
+<p>In every software there is a need to test and check if the functionalities work as per the requirement or not. And so after successfully creating first two commands I also extended integration tests for the commands. The tests cases are for testing the commands in LSP(Language Server Protocol) environment.</p>
+<h2 id="Final-words"><a href="#Final-words" class="headerlink" title="Final words"></a>Final words</h2><p>Every project drafts an estimated plan for project development. We try our best to stick to that plan but sometimes either we are ahead in the project timeline or a bit behind. It feels good that I was able to accomplish around 45% of the internship project plan in the first half. I look forward to improving my pace and work productivity. And I must not forget to mention how grateful I am to the F# community which is always available to help me out when I’m stuck. :)</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-role-as-an-intern"><span class="toc-number">1.</span> <span class="toc-text">My role as an intern!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#First-half-of-the-internship"><span class="toc-number">2.</span> <span class="toc-text">First half of the internship</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-words"><span class="toc-number">3.</span> <span class="toc-text">Final words</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&text=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&is_video=false&description=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Outreachy Mid-point Progress Report&body=Check out this article: http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&title=Outreachy Mid-point Progress Report" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/&name=Outreachy Mid-point Progress Report&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2022 Nekomyst
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Write-up for Winja CTF challenges held at NULLCON Goa 2020.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NULLCON 2020 Winja CTF Write-up">
+<meta property="og:url" content="http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/index.html">
+<meta property="og:site_name" content="Nekomyst">
+<meta property="og:description" content="Write-up for Winja CTF challenges held at NULLCON Goa 2020.">
+<meta property="article:published_time" content="2020-03-25T08:55:46.000Z">
+<meta property="article:modified_time" content="2021-07-21T12:17:35.000Z">
+<meta property="article:author" content="Nekomyst">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="Hacking">
+<meta property="article:tag" content="WebSecurity">
+<meta property="article:tag" content="Nullcon">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>NULLCON 2020 Winja CTF Write-up</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/08/20/Outreachy-Final-Report/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&text=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&is_video=false&description=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=NULLCON 2020 Winja CTF Write-up&body=Check out this article: http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&name=NULLCON 2020 Winja CTF Write-up&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NULLCON-2020"><span class="toc-number">1.</span> <span class="toc-text">NULLCON 2020</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CTF-Write-up"><span class="toc-number">2.</span> <span class="toc-text">CTF Write-up</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-1-A-spy-is-born"><span class="toc-number">2.0.1.</span> <span class="toc-text">Chapter 1 - A spy is born</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hackcha2"><span class="toc-number">2.1.</span> <span class="toc-text">hackcha2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Format-Your-Computer"><span class="toc-number">2.2.</span> <span class="toc-text">Format Your Computer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decrypt-the-Chiffrer"><span class="toc-number">2.3.</span> <span class="toc-text">Decrypt the Chiffrer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-2-With-love-from-Moscow"><span class="toc-number">2.3.1.</span> <span class="toc-text">Chapter 2 - With love from Moscow</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Face-Reveal"><span class="toc-number">2.4.</span> <span class="toc-text">Face Reveal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Korla’s-past"><span class="toc-number">2.5.</span> <span class="toc-text">Korla’s past</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XL-Mastery"><span class="toc-number">2.6.</span> <span class="toc-text">XL Mastery</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-3-A-friend-in-need"><span class="toc-number">2.6.1.</span> <span class="toc-text">Chapter 3 - A friend in need</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-me"><span class="toc-number">2.7.</span> <span class="toc-text">Find me</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-“weird”-person"><span class="toc-number">2.8.</span> <span class="toc-text">A “weird” person!</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-4-In-a-hopeless-place"><span class="toc-number">2.8.1.</span> <span class="toc-text">Chapter 4 - In a hopeless place</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exfiltrate-John"><span class="toc-number">2.9.</span> <span class="toc-text">Exfiltrate John</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        NULLCON 2020 Winja CTF Write-up
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Nekomyst</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-03-25T08:55:46.000Z" itemprop="datePublished">25 Mar, 2020</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/CTF/" rel="tag">CTF</a>, <a class="tag-link" href="/tags/Hacking/" rel="tag">Hacking</a>, <a class="tag-link" href="/tags/Nullcon/" rel="tag">Nullcon</a>, <a class="tag-link" href="/tags/WebSecurity/" rel="tag">WebSecurity</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="NULLCON-2020"><a href="#NULLCON-2020" class="headerlink" title="NULLCON 2020"></a>NULLCON 2020</h2><p>NULLCON is an annual International Security Conference held at Goa, India for Security enthusiasts, researchers and academia. It was the 11th edition of NULLCON this year. For details checkout their <a href="https://nullcon.net/website/" target="_blank" rel="noopener">website</a>.</p>
+<p>As an upcoming Security Engineer, it was an amazing experience to be at NULLCON. NULLCON is one of the perfect places to meet awesome hackers from around the world, know their stories and learn various ideas from them over some food and drinks. Also there are various CTF events held at Nullcon (HackIM, Winja CTF, Battle Underground, Hardware CTF, SCADA CTF) and I happened to play the <a href="https://twitter.com/Winja_CTF" target="_blank" rel="noopener">Winja CTF</a>. I’m glad that <a href="https://twitter.com/0xCaptainFreak" target="_blank" rel="noopener">Shoeb Patel</a> (a.k.a CaptainFreak) had encouraged me to register and participate in Winja. Great thanks to him :D</p>
+<h2 id="CTF-Write-up"><a href="#CTF-Write-up" class="headerlink" title="CTF Write-up"></a>CTF Write-up</h2><p>Here is my write-up for all the challenges that I had solved during the CTF and also after it was made open for all. </p>
+<p>The challenges in the CTF where partitioned into chapters or levels and the next chapter unlocks once either one of the challenges in preceding chapter has been solved. Higher the chapter, higher will be points gained in those challenges.</p>
+<h4 id="Chapter-1-A-spy-is-born"><a href="#Chapter-1-A-spy-is-born" class="headerlink" title="Chapter 1 - A spy is born"></a>Chapter 1 - A spy is born</h4><h3 id="hackcha2"><a href="#hackcha2" class="headerlink" title="hackcha2"></a>hackcha2</h3><p>This was a web challenge and upon inspecting the HTML source code I found there was a call made to a function, secretFunction(). The secretFunction() could be found upon looking at the js script files.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> secretFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> secret = <span class="string">"ZmxhZ3t3ZWxjb21lX203aXc3aGlES1RfTXJHcmlubnlXYW50c1RvU2VlWW91fQ=="</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The variable secret contained a base64 encoded value. The flag was revealed when it was base64 decoded.</p>
+<h3 id="Format-Your-Computer"><a href="#Format-Your-Computer" class="headerlink" title="Format Your Computer"></a>Format Your Computer</h3><p>This was a simple challenge which involved downloading an executable file and searching flag in its content. The <code>strings</code> command did its magic and revealed the flag.</p>
+<h3 id="Decrypt-the-Chiffrer"><a href="#Decrypt-the-Chiffrer" class="headerlink" title="Decrypt the Chiffrer"></a>Decrypt the Chiffrer</h3><p>Here the encrypted text of the flag was given <code>atgk{OqkqMXBz08_XsipvQyMaQrvnmopyi}</code>. The description of the challenge was in French and when I translated it to English it stated “know the number, know the key”. That meant the flag was encrypted using Vigenere Cipher and we need to find the key to decrypt the given text.</p>
+<p>After that I tried to guess the possible key. I knew the first four letters of the encrypted text “atgk” are “flag”. So using an online tool for decryption I tried to guess the first four letters one by one. And the first four letters of the key were then “vige”. And so I thought the possible key would be “vigenere”, which worked. </p>
+<h4 id="Chapter-2-With-love-from-Moscow"><a href="#Chapter-2-With-love-from-Moscow" class="headerlink" title="Chapter 2 - With love from Moscow"></a>Chapter 2 - With love from Moscow</h4><h3 id="Face-Reveal"><a href="#Face-Reveal" class="headerlink" title="Face Reveal"></a>Face Reveal</h3><p>This was a small steganography challenge with an image provided to us. The description was encrypted with Caesar cipher. After decrypting it stated that Openstego has been used and that the password to recover the secret from the given image is a common password.</p>
+<p><a href="https://www.openstego.com/" target="_blank" rel="noopener">Openstego</a> is a free software that can be used for steganography. One can easily select the file and extract hidden data if the password for hiding that data is known. And thus I applied a set of common passwords and got the flag.</p>
+<h3 id="Korla’s-past"><a href="#Korla’s-past" class="headerlink" title="Korla’s past"></a>Korla’s past</h3><p>This was another easy challenge. There was a piece of encoded text provided which seemed base64 encoded. When I decoded it resulted in another base64 encoded text. And so I decoded it again and found the flag.</p>
+<h3 id="XL-Mastery"><a href="#XL-Mastery" class="headerlink" title="XL Mastery"></a>XL Mastery</h3><p>This challenge provided a zip file which contained various files and the flag was hidden in one of them.</p>
+<h4 id="Chapter-3-A-friend-in-need"><a href="#Chapter-3-A-friend-in-need" class="headerlink" title="Chapter 3 - A friend in need"></a>Chapter 3 - A friend in need</h4><h3 id="Find-me"><a href="#Find-me" class="headerlink" title="Find me"></a>Find me</h3><p>Find me was another web challenge it had a commented section in the HTML source code of the webpage. The section contained navigation links for nav-bar. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--- </span><br><span class="line"> &lt;ul&lt;b&lt;body text&#x3D;&quot;black&quot;&lt;font size&#x3D;&quot;5&quot;LINKS&lt;&#x2F;font&lt;&#x2F;b</span><br><span class="line"> &lt;li&lt;a href&#x3D;&quot;FIND&quot; style &#x3D; &quot;color: rgb(255,255,255)&quot;&lt;font face&#x3D;&quot;ARIAL&quot; size&#x3D;&quot;5&quot;PROGRAM.htm&lt;&#x2F;font&lt;&#x2F;a</span><br><span class="line"> &lt;&#x2F;ul</span><br><span class="line"> &lt;&#x2F;body&gt;</span><br><span class="line">---&gt;</span><br></pre></td></tr></table></figure>
+<p>So when visiting the endpoint by adding <code>/FIND</code> in the url I obtained a file with hex code. The hex code was an encoded C++ code which on execution revealed the flag.</p>
+<h3 id="A-“weird”-person"><a href="#A-“weird”-person" class="headerlink" title="A “weird” person!"></a>A “weird” person!</h3><p>This challenge required a little knowledge about <a href="https://en.m.wikipedia.org/wiki/Esoteric_programming_language" target="_blank" rel="noopener">Esoteric programming languages</a>. The text file given for the challenge contained JSFuck code. JSFuck is an esoteric programming style of JavaScript, where code is written using only six characters: [, ], (, ), !, and +. I then decoded the text file and got the javascript code which contained the flag in a <code>console.log()</code> code line. </p>
+<h4 id="Chapter-4-In-a-hopeless-place"><a href="#Chapter-4-In-a-hopeless-place" class="headerlink" title="Chapter 4 - In a hopeless place"></a>Chapter 4 - In a hopeless place</h4><h3 id="Exfiltrate-John"><a href="#Exfiltrate-John" class="headerlink" title="Exfiltrate John"></a>Exfiltrate John</h3><p>A forensics challenge in which the author gave three files alcohol.jpg, encrypted, real_programmers.jpg. The challenge asks to decrypt the encrypted data. The encrypted data seemed to be encrypted by using a public-key encryption algorithm which meant that the details of the public/private key was in the png images provided. So this involves steganography again. The very first step I did (and which was also provided as one of the hints for the challenge) was to check the metadata of the two images using an online exiftool. </p>
+<p>From the first image <code>alcohol.jpg</code> I got the following data:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">EXIF</span><br><span class="line">DocumentName	Wonk Wonk !</span><br><span class="line">ImageDescription	The private key is encrypted! I know</span><br><span class="line">PageName	OpenSSL</span><br><span class="line">Artist	https:&#x2F;&#x2F;futureboy.us&#x2F;stegano&#x2F;decinput.html</span><br><span class="line">HostComputer	RSA</span><br></pre></td></tr></table></figure>
+<p>and from the second image <code>real_programmers.jpg</code> I got: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EXIF </span><br><span class="line">DocumentName	So you found something!!</span><br><span class="line">ImageDescription	This has the private key !!</span><br><span class="line">Artist	https:&#x2F;&#x2F;futureboy.us&#x2F;stegano&#x2F;decinput.html</span><br><span class="line">HostComputer	RSA</span><br></pre></td></tr></table></figure>
+
+<p>From the above data I was able to figure out three pieces of information. First, the encryption algorithm used is RSA algorithm. Second, to extract information from the images I needed to use the link <code>https://futureboy.us/stegano/decinput.html</code>. Third, the private key present in the image <code>real_programmers.jpg</code> is encrypted using OpenSSL. So I need the password to decrypt it which is extracted from the image <code>alcohol.png</code>. </p>
+<p>To decrypt the private key, I saved the encrypted private key in a file, enc.key. Then I used the following command and the password from image <code>alcohol.png</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ openssl rsa -in enc.key -out dec.key</span><br></pre></td></tr></table></figure>
+<p>Once the private key was obtained I decrypted the contents of the <code>encrypted</code> file which revealed the flag.</p>
+<!-- #### Chapter 5 - Confrontation
+
+### Powerless commands
+-->
+<hr>
+<p>Playing CTFs is an awesome way to trigger our brains that leads us to enjoy and immerse ourselves into researching and finding the solutions. I have learned some new stuff while playing Winja CTF and also touched upon previously known knowledge. Glad to post this blog. And a huge shoutout to CaptainFreak for encouraging me to play Winja CTF.</p>
+<p>Thanks for reading.</p>
+<p>Happy Hacking B)</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NULLCON-2020"><span class="toc-number">1.</span> <span class="toc-text">NULLCON 2020</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CTF-Write-up"><span class="toc-number">2.</span> <span class="toc-text">CTF Write-up</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-1-A-spy-is-born"><span class="toc-number">2.0.1.</span> <span class="toc-text">Chapter 1 - A spy is born</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hackcha2"><span class="toc-number">2.1.</span> <span class="toc-text">hackcha2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Format-Your-Computer"><span class="toc-number">2.2.</span> <span class="toc-text">Format Your Computer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decrypt-the-Chiffrer"><span class="toc-number">2.3.</span> <span class="toc-text">Decrypt the Chiffrer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-2-With-love-from-Moscow"><span class="toc-number">2.3.1.</span> <span class="toc-text">Chapter 2 - With love from Moscow</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Face-Reveal"><span class="toc-number">2.4.</span> <span class="toc-text">Face Reveal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Korla’s-past"><span class="toc-number">2.5.</span> <span class="toc-text">Korla’s past</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XL-Mastery"><span class="toc-number">2.6.</span> <span class="toc-text">XL Mastery</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-3-A-friend-in-need"><span class="toc-number">2.6.1.</span> <span class="toc-text">Chapter 3 - A friend in need</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-me"><span class="toc-number">2.7.</span> <span class="toc-text">Find me</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-“weird”-person"><span class="toc-number">2.8.</span> <span class="toc-text">A “weird” person!</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-4-In-a-hopeless-place"><span class="toc-number">2.8.1.</span> <span class="toc-text">Chapter 4 - In a hopeless place</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exfiltrate-John"><span class="toc-number">2.9.</span> <span class="toc-text">Exfiltrate John</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&text=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&is_video=false&description=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=NULLCON 2020 Winja CTF Write-up&body=Check out this article: http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&title=NULLCON 2020 Winja CTF Write-up" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/&name=NULLCON 2020 Winja CTF Write-up&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2022 Nekomyst
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/Nekomyst" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="https://nekomyst.com" target="_blank" rel="noopener">Website</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

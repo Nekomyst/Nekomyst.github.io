@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Nekomyst</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://nekomyst.github.io/"/>
+  <updated>2021-07-21T12:17:35.000Z</updated>
+  <id>http://nekomyst.github.io/</id>
+  
+  <author>
+    <name>Nekomyst</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NULLCON 2020 Winja CTF Write-up</title>
+    <link href="http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/"/>
+    <id>http://nekomyst.github.io/2020/03/25/NULLCON-2020-Winja-CTF-Write-up/</id>
+    <published>2020-03-25T08:55:46.000Z</published>
+    <updated>2021-07-21T12:17:35.000Z</updated>
+    
+    <summary type="html">
+    
+      Write-up for Winja CTF challenges held at NULLCON Goa 2020.
+    
+    </summary>
+    
+    
+      <category term="CTF" scheme="http://nekomyst.github.io/tags/CTF/"/>
+    
+      <category term="Hacking" scheme="http://nekomyst.github.io/tags/Hacking/"/>
+    
+      <category term="WebSecurity" scheme="http://nekomyst.github.io/tags/WebSecurity/"/>
+    
+      <category term="Nullcon" scheme="http://nekomyst.github.io/tags/Nullcon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Outreachy Final Report</title>
+    <link href="http://nekomyst.github.io/2019/08/20/Outreachy-Final-Report/"/>
+    <id>http://nekomyst.github.io/2019/08/20/Outreachy-Final-Report/</id>
+    <published>2019-08-20T16:25:17.000Z</published>
+    <updated>2021-07-21T10:35:32.000Z</updated>
+    
+    <summary type="html">
+    
+      This blog is my final report on the FSAC project under my Outreachy internship.
+    
+    </summary>
+    
+    
+      <category term="Outreachy" scheme="http://nekomyst.github.io/tags/Outreachy/"/>
+    
+      <category term="Outreachy2019" scheme="http://nekomyst.github.io/tags/Outreachy2019/"/>
+    
+      <category term="FSAC" scheme="http://nekomyst.github.io/tags/FSAC/"/>
+    
+      <category term="Fsharp" scheme="http://nekomyst.github.io/tags/Fsharp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Outreachy Mid-point Progress Report</title>
+    <link href="http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/"/>
+    <id>http://nekomyst.github.io/2019/07/06/Outreachy-Mid-point-Progress-Report/</id>
+    <published>2019-07-06T13:07:39.000Z</published>
+    <updated>2021-07-21T10:35:32.000Z</updated>
+    
+    <summary type="html">
+    
+      This blog post is the Outreachy mid-point progress report asked as Week-7 assignment.
+    
+    </summary>
+    
+    
+      <category term="Outreachy" scheme="http://nekomyst.github.io/tags/Outreachy/"/>
+    
+      <category term="Outreachy2019" scheme="http://nekomyst.github.io/tags/Outreachy2019/"/>
+    
+      <category term="FSAC" scheme="http://nekomyst.github.io/tags/FSAC/"/>
+    
+      <category term="Fsharp" scheme="http://nekomyst.github.io/tags/Fsharp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FsAutoComplete : My Outreachy Project</title>
+    <link href="http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/"/>
+    <id>http://nekomyst.github.io/2019/06/25/FsAutoComplete-My-Outreachy-Project/</id>
+    <published>2019-06-25T17:17:54.000Z</published>
+    <updated>2021-07-21T10:35:32.000Z</updated>
+    
+    <summary type="html">
+    
+      Explanation about my Outreachy project and the F# community.
+    
+    </summary>
+    
+    
+      <category term="Outreachy" scheme="http://nekomyst.github.io/tags/Outreachy/"/>
+    
+      <category term="Outreachy2019" scheme="http://nekomyst.github.io/tags/Outreachy2019/"/>
+    
+      <category term="FSAC" scheme="http://nekomyst.github.io/tags/FSAC/"/>
+    
+      <category term="Fsharp" scheme="http://nekomyst.github.io/tags/Fsharp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Everybody struggles! It&#39;s okay to get stuck.</title>
+    <link href="http://nekomyst.github.io/2019/06/13/Everybody-struggles-It-s-okay-to-get-stuck/"/>
+    <id>http://nekomyst.github.io/2019/06/13/Everybody-struggles-It-s-okay-to-get-stuck/</id>
+    <published>2019-06-13T09:45:10.000Z</published>
+    <updated>2021-07-21T10:35:32.000Z</updated>
+    
+    <summary type="html">
+    
+      This blog is about my struggles in open source contribution during and after my selection in Outreachy summer 2019.
+    
+    </summary>
+    
+    
+      <category term="Outreachy" scheme="http://nekomyst.github.io/tags/Outreachy/"/>
+    
+      <category term="Outreachy2019" scheme="http://nekomyst.github.io/tags/Outreachy2019/"/>
+    
+      <category term="FSAC" scheme="http://nekomyst.github.io/tags/FSAC/"/>
+    
+      <category term="Fsharp" scheme="http://nekomyst.github.io/tags/Fsharp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Outreachy 101 - Summer Internship 2019</title>
+    <link href="http://nekomyst.github.io/2019/06/01/Outreachy-101-Summer-Internship-2019/"/>
+    <id>http://nekomyst.github.io/2019/06/01/Outreachy-101-Summer-Internship-2019/</id>
+    <published>2019-06-01T08:36:35.000Z</published>
+    <updated>2021-07-21T10:35:32.000Z</updated>
+    
+    <summary type="html">
+    
+      The first blog for Outreachy Internship with procedure of my application.
+    
+    </summary>
+    
+    
+      <category term="Outreachy" scheme="http://nekomyst.github.io/tags/Outreachy/"/>
+    
+      <category term="Outreachy2019" scheme="http://nekomyst.github.io/tags/Outreachy2019/"/>
+    
+      <category term="FSAC" scheme="http://nekomyst.github.io/tags/FSAC/"/>
+    
+      <category term="Fsharp" scheme="http://nekomyst.github.io/tags/Fsharp/"/>
+    
+  </entry>
+  
+</feed>
